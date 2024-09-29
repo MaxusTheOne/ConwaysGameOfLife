@@ -22,5 +22,8 @@
 
     - **Clear Grid knap:**
     - **Add Random Cells knap:**
+    - **Paus simulering**
+    - **Tegn aktive celler**
 
 7. **Automatisk generation counter, også vist på siden, følger hver iteration**
+
