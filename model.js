@@ -39,7 +39,7 @@ export function logLifeGrid() {
     console.log(lifeGrid.dump());
     
 }
-export function logneighbourGrid() {
+export function logNeighbourGrid() {
     console.log(neighbourGrid.dump());
     
 }
