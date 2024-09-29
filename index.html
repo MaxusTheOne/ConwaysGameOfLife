@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <script type="module" src="controller.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="grid-container"></div>
+        <div class="button-container">
+            <button class="clear-grid-button">Clear grid</button
+            ><button class="add-random-cells-button">Add random cells</button>
+        </div>
+        <div class="generation-count-container">
+            <h3>Generations:</h3>
+            <div class="generation-count">0</div>
+        </div>
+        <script type="module" src="controller.js"></script>
+    </body>
 </html>
+
+<!-- - Der skal være en brugerflade hvor brugeren minimum kan:
+    - tømme grid’et fuldstændig for levende celler
+    - tilføje tilfældige levende celler rundt omkring på grid’et (må ikke slette dem der er!) -->

@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+td {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.button-container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.button-container > button:hover {
+    cursor: pointer;
+}
+
+td.alive {
+    background-color: green;
+}
