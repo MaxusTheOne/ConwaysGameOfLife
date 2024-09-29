@@ -31,6 +31,10 @@ export function countNeigbours() {
     return neighbourGrid;
 }
 
+export function reviveCell(row, col) {
+    lifeGrid.set(row, col, 1);
+}
+
 export function getLifeGrid() {
     return lifeGrid;
 }

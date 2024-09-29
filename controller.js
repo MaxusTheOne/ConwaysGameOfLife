@@ -4,6 +4,7 @@ import * as view from "./view.js";
 window.addEventListener("load", main());
 
 let count = 0;
+let running = true;
 
 function main() {
     console.log("controller init");
@@ -12,13 +13,15 @@ function main() {
     window.model = model;
     window.view = view;
 
-    setInterval(runIteration, 1500);
+    setInterval(runIteration, 400);
 }
 
 export function runIteration() {
-    model.runIteration();
-    view.displayGrid(model);
-    generationCount();
+    if (running){
+        model.runIteration();
+        view.displayGrid(model);
+        generationCount();
+    }
 }
 
 export function clear() {
@@ -28,6 +31,15 @@ export function clear() {
 
 export function addRandomCells() {
     model.randomCellFill();
+    view.displayGrid(model);
+}
+
+export function pause(){
+    running = !running
+}
+
+export function reviveCell(row, col) {
+    model.reviveCell(row, col);
     view.displayGrid(model);
 }
 

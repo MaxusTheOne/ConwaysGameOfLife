@@ -5,10 +5,24 @@ export function start() {
     makeTable(20, 20);
     document.querySelector(".clear-grid-button").addEventListener("click", clearGridButton);
     document.querySelector(".add-random-cells-button").addEventListener("click", addRandomCellsButton);
+    document.querySelector(".pause-button").addEventListener("click", pauseButton);
 }
 
 export function makeTable(rows, columns) {
     const table = document.querySelector(".grid-container");
+    let isMouseDown = false;
+
+    table.addEventListener("mousedown", () => {
+        isMouseDown = true;
+    });
+
+    table.addEventListener("mouseup", () => {
+        isMouseDown = false;
+    });
+
+    table.addEventListener("mouseleave", () => {
+        isMouseDown = false;
+    });
 
     for (let i = 0; i < rows; i++) {
         const tr = document.createElement('tr');
@@ -17,6 +31,17 @@ export function makeTable(rows, columns) {
             td.dataset.row = i;
             td.dataset.column = j;
             tr.appendChild(td);
+
+            let holdTimer;
+            td.addEventListener("mousedown", function () {
+                controller.reviveCell(i, j);
+            });
+
+            td.addEventListener("mouseover", function () {
+                if (isMouseDown) {
+                    controller.reviveCell(i, j);
+                }
+            });
         }
         table.appendChild(tr);
     }
@@ -40,6 +65,10 @@ export function clearGridButton() {
 
 export function addRandomCellsButton() {
     controller.addRandomCells();
+}
+
+export function pauseButton(){
+    controller.pause()
 }
 
 export function updateGenerationCount(generationCount) {
